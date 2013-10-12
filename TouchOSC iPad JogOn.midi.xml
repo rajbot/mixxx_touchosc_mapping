@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='utf-8'?>
+<MixxxMIDIPreset schemaVersion="1" mixxxVersion="1.10.0+">
+  <info>
+    <name>TouchOSC iPad Jog-On</name>
+    <author>rajbot</author>
+    <description>TouchOSC iPad application mapping for the Jog-On layout. Please file bugs at https://github.com/rajbot/mixxx_touchosc_mapping</description>
+  </info>
+  <controller id="Network" port="">
+    <scriptfiles>
+      <file functionprefix="TouchOSC" filename="TouchOSC-iPad-scripts.js"/>
+    </scriptfiles>
+    <controls>
+      <control>
+        <!--crossfader-->
+        <group>[Master]</group>
+        <key>crossfader</key>
+        <status>0XB0</status>
+        <midino>0X11</midino>
+      </control>
+      <control>
+        <!--volume 1-->
+        <group>[Channel1]</group>
+        <key>volume</key>
+        <status>0XB0</status>
+        <midino>0X25</midino>
+      </control>
+      <control>
+        <!--volume 2-->
+        <group>[Channel2]</group>
+        <key>volume</key>
+        <status>0XB0</status>
+        <midino>0X2A</midino>
+      </control>
+      <control>
+        <!--pitch control 1-->
+        <group>[Channel1]</group>
+        <key>rate</key>
+        <status>0XB0</status>
+        <midino>0X19</midino>
+      </control>
+      <control>
+        <!--pitch control 2-->
+        <group>[Channel2]</group>
+        <key>rate</key>
+        <status>0XB0</status>
+        <midino>0X20</midino>
+      </control>
+      <control>
+        <!--play 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.play</key>
+        <status>0XB0</status>
+        <midino>0X04</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--play 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.play</key>
+        <status>0XB0</status>
+        <midino>0X07</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--jog 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.jog</key>
+        <status>0XB0</status>
+        <midino>0X1A</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--jog 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.jog</key>
+        <status>0XB0</status>
+        <midino>0X21</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--cue_default 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X03</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--cue_default 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X08</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--beatsync 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X02</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--beatsync 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X09</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--playposition 1-->
+        <group>[Channel1]</group>
+        <key>playposition</key>
+        <status>0XB0</status>
+        <midino>0X34</midino>
+        <maximum>1.14</maximum>
+		<minimum>0.14</minimum> <!-- minimum doesn't seem to work -->
+      </control>
+      <control>
+        <!--playposition 2-->
+        <group>[Channel2]</group>
+        <key>playposition</key>
+        <status>0XB0</status>
+        <midino>0X33</midino>
+        <maximum>1.14</maximum>
+		<minimum>0.14</minimum>  <!-- minimum doesn't seem to work -->
+      </control>
+    </controls>
+  </controller>
+</MixxxMIDIPreset>
