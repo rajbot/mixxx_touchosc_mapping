@@ -132,7 +132,7 @@
         <status>0XB0</status>
         <midino>0X34</midino>
         <maximum>1.14</maximum>
-		<minimum>0.14</minimum> <!-- minimum doesn't seem to work -->
+        <minimum>0.14</minimum> <!-- minimum doesn't seem to work -->
       </control>
       <control>
         <!--playposition 2-->
@@ -141,7 +141,7 @@
         <status>0XB0</status>
         <midino>0X33</midino>
         <maximum>1.14</maximum>
-		<minimum>0.14</minimum>  <!-- minimum doesn't seem to work -->
+        <minimum>0.14</minimum>  <!-- minimum doesn't seem to work -->
       </control>
     </controls>
   </controller>
