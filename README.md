@@ -6,7 +6,7 @@ Mapping to use the TouchOSC Jog-On iPad template to control the Mixxx DJ softwar
 Installation
 ------------
 
-- Copy these files into `/Applications/Mixxx.app/Contents/Resources/controllers` os OSX or `/usr[/local]/share/mixxx/midi` on Linux
+- Copy these files into `/Applications/Mixxx.app/Contents/Resources/controllers` on OSX or `/usr[/local]/share/mixxx/midi` on Linux
 - Put your iPad and your laptop on the same wifi network
 - Run TouchOSC Bridge on your laptop
 - Start TouchOSC on your iPad
@@ -17,4 +17,4 @@ Installation
 - In the Load Preset, choose "TouchOSC iPad Jog-On" and you should be good to go.
 
 Volume, crossfader, pitch control, play, cue, beatsync, playposition, and jog wheel are mapped so far.
-I will add more when I have time.
+I will add more controls when I have time.
