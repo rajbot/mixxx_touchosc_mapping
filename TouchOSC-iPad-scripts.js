@@ -122,3 +122,16 @@ TouchOSC.push_button = function(channel, control, value, status, group) {
     engine.setValue(group, action, (0!=value));
 };
 
+
+// play_position()
+//________________________________________________________________________________________
+TouchOSC.play_position = function(channel, control, value, status, group) {
+    //don't scrub the currently-playing track, in order to avoid accidental input
+    var currently_playing = engine.getValue(group, 'play');
+    if (currently_playing) {
+        return;
+    }
+    var pos_val = 1.14 / 127 * value;
+    engine.setValue(group, 'playposition', pos_val);
+};
+

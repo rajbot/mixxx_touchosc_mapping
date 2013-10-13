@@ -128,20 +128,22 @@
       <control>
         <!--playposition 1-->
         <group>[Channel1]</group>
-        <key>playposition</key>
+        <key>TouchOSC.play_position</key>
         <status>0XB0</status>
         <midino>0X34</midino>
-        <maximum>1.14</maximum>
-        <minimum>0.14</minimum> <!-- minimum doesn't seem to work -->
+        <options>
+          <Script-Binding/>
+        </options>
       </control>
       <control>
         <!--playposition 2-->
         <group>[Channel2]</group>
-        <key>playposition</key>
+        <key>TouchOSC.play_position</key>
         <status>0XB0</status>
         <midino>0X33</midino>
-        <maximum>1.14</maximum>
-        <minimum>0.14</minimum>  <!-- minimum doesn't seem to work -->
+        <options>
+          <Script-Binding/>
+        </options>
       </control>
     </controls>
   </controller>

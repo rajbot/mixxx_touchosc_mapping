@@ -3,10 +3,10 @@ mixxx_touchosc_mapping
 
 Mapping to use the TouchOSC Jog-On iPad template to control the Mixxx DJ software
 
-Installation
-------------
+Installation on OSX
+-------------------
 
-- Copy these files into `/Applications/Mixxx.app/Contents/Resources/controllers` on OSX or `/usr[/local]/share/mixxx/midi` on Linux
+- Copy these files into `/Applications/Mixxx.app/Contents/Resources/controllers`
 - Put your iPad and your laptop on the same wifi network
 - Run TouchOSC Bridge on your laptop
 - Start TouchOSC on your iPad
