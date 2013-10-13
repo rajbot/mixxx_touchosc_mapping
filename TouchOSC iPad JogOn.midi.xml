@@ -145,6 +145,106 @@
           <Script-Binding/>
         </options>
       </control>
+      <control>
+        <!--toggle cue_mode 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.toggle_cue_mode</key>
+        <status>0XB0</status>
+        <midino>0X0C</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_1 ch1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X0D</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_2 ch1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X0E</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_3 ch1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X0F</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_4 ch1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X10</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_1 ch2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X12</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_2 ch2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X13</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_3 ch2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X14</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--hot_cue_5 ch2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.hot_cue</key>
+        <status>0XB0</status>
+        <midino>0X15</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--toggle cue_mode 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.toggle_cue_mode</key>
+        <status>0XB0</status>
+        <midino>0X16</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
     </controls>
   </controller>
 </MixxxMIDIPreset>

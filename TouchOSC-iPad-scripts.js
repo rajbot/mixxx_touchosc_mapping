@@ -1,6 +1,8 @@
 //Please report bugs at https://github.com/rajbot/mixxx_touchosc_mapping
 
-function TouchOSC() {}
+TouchOSC = new function() {
+}
+
 TouchOSC.button_state = {"released":0x00, "pressed":0x7F};
 
 TouchOSC.push_buttons = {
@@ -11,12 +13,15 @@ TouchOSC.push_buttons = {
 }
 
 TouchOSC.leds = {
-    '[Channel1]': {'play': 0x04, },
-    '[Channel2]': {'play': 0x07, },
+    '[Channel1]': {'play':     0x04,
+                   'cue_mode': 0x0C, },
+    '[Channel2]': {'play':     0x07,
+                   'cue_mode': 0x16, },
 }
 
 TouchOSC.global_timer = null;
 
+TouchOSC.cue_mode = {'[Channel1]': 'goto', '[Channel2]': 'goto'};
 
 // init()
 //________________________________________________________________________________________
@@ -133,5 +138,53 @@ TouchOSC.play_position = function(channel, control, value, status, group) {
     }
     var pos_val = 1.14 / 127 * value;
     engine.setValue(group, 'playposition', pos_val);
+};
+
+
+// toggle_cue_mode()
+//________________________________________________________________________________________
+TouchOSC.toggle_cue_mode = function(channel, control, value, status, group) {
+    if (value != TouchOSC.button_state.pressed) return;
+
+    //when toggle_cue_mode is called, `this` does not refer to an instance of a TouchOSC object,
+    //so we can't use `this.cue_mode` to store state.. hmm
+    if (TouchOSC.cue_mode[group] == 'goto') {
+        TouchOSC.cue_mode[group] = 'set';
+        midi.sendShortMsg(0xB1, control, 0x7F);
+    } else {
+        TouchOSC.cue_mode[group] = 'goto';
+        midi.sendShortMsg(0xB1, control, 0);
+    }
+};
+
+// hot_cue()
+//________________________________________________________________________________________
+TouchOSC.hot_cue = function(channel, control, value, status, group) {
+    if (value != TouchOSC.button_state.pressed) return;
+    var que_mode = TouchOSC.cue_mode[group];
+    print (value);
+    if (control <= 0x10) {
+        var cue_num = control - 0x0C;
+    } else {
+        var cue_num = -(control - 0x16);
+    }
+
+    var enabled = engine.getValue(group, 'hotcue_'+cue_num+'_enabled');
+    if ('set' == que_mode) {
+        if (enabled) {
+            engine.setValue(group, 'hotcue_'+cue_num+'_clear', 1);
+            midi.sendShortMsg(0xB1, control, 0);
+        } else {
+            engine.setValue(group, 'hotcue_'+cue_num+'_set', 1);
+            midi.sendShortMsg(0xB1, control, 0x7F);
+        }
+    } else {
+        if (enabled) {
+            engine.setValue(group, 'hotcue_'+cue_num+'_goto', 1);
+        } else {
+            engine.setValue(group, 'hotcue_'+cue_num+'_set', 1);
+            midi.sendShortMsg(0xB1, control, 0x7F);
+        }
+    }
 };
 
