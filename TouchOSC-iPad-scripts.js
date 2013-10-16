@@ -10,6 +10,12 @@ TouchOSC.push_buttons = {
     0x03: 'cue_default',
     0x08: 'cue_default',
     0x09: 'beatsync',
+    0x39: 'filterLowKill',
+    0x3A: 'filterMidKill',
+    0x3B: 'filterHighKill',
+    0x44: 'filterLowKill',
+    0x45: 'filterMidKill',
+    0x46: 'filterHighKill',
 }
 
 TouchOSC.leds = {
@@ -120,7 +126,7 @@ TouchOSC.cue = function(channel, control, value, status, group) {
 // push_button()
 //________________________________________________________________________________________
 TouchOSC.push_button = function(channel, control, value, status, group) {
-    //I couldn't get cue or beatsync to work with a script binding..
+    //I couldn't get cue, beatsync, or filterkill buttons to work without a script binding..
     //The button will be lit in the Mixxx UI when the button is held down (value==0x7F)
     //and then unlit when the button is released (value==0x00)
     var action = TouchOSC.push_buttons[control];

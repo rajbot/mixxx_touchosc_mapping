@@ -32,6 +32,26 @@
         <midino>0X2A</midino>
       </control>
       <control>
+        <!--cut 1-->
+        <group>[Channel1]</group>
+        <key>volume</key>
+        <status>0XB0</status>
+        <midino>0X05</midino>
+        <options>
+            <invert/>
+        </options>
+      </control>
+      <control>
+        <!--cut 2-->
+        <group>[Channel2]</group>
+        <key>volume</key>
+        <status>0XB0</status>
+        <midino>0X06</midino>
+        <options>
+            <invert/>
+        </options>
+      </control>
+      <control>
         <!--pitch control 1-->
         <group>[Channel1]</group>
         <key>rate</key>
@@ -241,6 +261,108 @@
         <key>TouchOSC.toggle_cue_mode</key>
         <status>0XB0</status>
         <midino>0X16</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--filterLow 1-->
+        <group>[Channel1]</group>
+        <key>filterLow</key>
+        <status>0XB0</status>
+        <midino>0X36</midino>
+      </control>
+      <control>
+        <!--filterMid 1-->
+        <group>[Channel1]</group>
+        <key>filterMid</key>
+        <status>0XB0</status>
+        <midino>0X37</midino>
+      </control>
+      <control>
+        <!--filterHigh 1-->
+        <group>[Channel1]</group>
+        <key>filterHigh</key>
+        <status>0XB0</status>
+        <midino>0X38</midino>
+      </control>
+      <control>
+        <!--filterLow 2-->
+        <group>[Channel2]</group>
+        <key>filterLow</key>
+        <status>0XB0</status>
+        <midino>0X41</midino>
+      </control>
+      <control>
+        <!--filterMid 2-->
+        <group>[Channel2]</group>
+        <key>filterMid</key>
+        <status>0XB0</status>
+        <midino>0X42</midino>
+      </control>
+      <control>
+        <!--filterHigh 2-->
+        <group>[Channel2]</group>
+        <key>filterHigh</key>
+        <status>0XB0</status>
+        <midino>0X43</midino>
+      </control>
+      <control>
+        <!--filterLowKill 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X39</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--filterMidKill 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X3A</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--filterHighKill 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X3B</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--filterLowKill 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X44</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--filterMidKill 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X45</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--filterHighKill 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.push_button</key>
+        <status>0XB0</status>
+        <midino>0X46</midino>
         <options>
           <Script-Binding/>
         </options>
