@@ -28,12 +28,15 @@ TouchOSC.leds = {
 TouchOSC.global_timer = null;
 
 TouchOSC.cue_mode = {'[Channel1]': 'goto', '[Channel2]': 'goto'};
+TouchOSC.jog_mode = {'[Channel1]': 'jog',  '[Channel2]': 'jog'};
 
 // init()
 //________________________________________________________________________________________
 TouchOSC.init = function(id) {
-    midi.sendShortMsg(0xB1,0x04,0x00); //Turn off the Deck A Play LED
-    midi.sendShortMsg(0xB1,0x07,0x00); //Turn off the Deck B Play LED
+    midi.sendShortMsg(0xB1, 0x04, 0x00); //Turn off the Deck 1 Play LED
+    midi.sendShortMsg(0xB1, 0x07, 0x00); //Turn off the Deck 2 Play LED
+    midi.sendShortMsg(0xB1, 0x1B, 0x00); //Deck 1 browse led
+    midi.sendShortMsg(0xB1, 0x24, 0x00); //Deck 2 browse led
 
     engine.connectControl('[Channel1]', 'play', 'TouchOSC.play_status');
     engine.connectControl('[Channel2]', 'play', 'TouchOSC.play_status');
@@ -70,6 +73,16 @@ TouchOSC.play_status = function(value, group, control) {
 // jog()
 //________________________________________________________________________________________
 TouchOSC.jog = function(channel, control, value, status, group) {
+
+    if(TouchOSC.jog_mode[group] == 'browse') {
+        if (0 == value) {
+            engine.setValue('[Playlist]', 'SelectPrevTrack', true);
+        } else {
+            engine.setValue('[Playlist]', 'SelectNextTrack', true);
+        }
+        return;
+    }
+
     var jog_dir;
     var action;
 
@@ -109,6 +122,40 @@ TouchOSC.jog_disable = function(group) {
     TouchOSC.global_timer = null;
     engine.setValue(group,'rate_temp_down',false);
     engine.setValue(group,'rate_temp_up',false);
+}
+
+
+// toggle_jog_mode()
+//________________________________________________________________________________________
+TouchOSC.toggle_jog_mode = function(channel, control, value, status, group) {
+    if (value != TouchOSC.button_state.pressed) return;
+
+    var led;
+    if ('[Channel1]' == group) {
+        led = 0x1B;
+    } else {
+        led = 0x24;
+    }
+
+    //when toggle_jog_mode is called, `this` does not refer to an instance of a TouchOSC object,
+    //so we can't use `this.jog_mode` to store state.. hmm
+    if (TouchOSC.jog_mode[group] == 'jog') {
+        TouchOSC.jog_mode[group] = 'browse';
+        midi.sendShortMsg(0xB1, led, 0x7F);
+    } else {
+        TouchOSC.jog_mode[group] = 'jog';
+        midi.sendShortMsg(0xB1, led, 0);
+    }
+};
+
+
+// load_track()
+//________________________________________________________________________________________
+TouchOSC.load_track = function(channel, control, value, status, group) {
+    engine.setValue(group, "LoadSelectedTrack", 1);
+    if (TouchOSC.jog_mode[group] == 'browse') {
+        TouchOSC.toggle_jog_mode(channel, control, value, status, group);
+    }
 }
 
 
@@ -162,6 +209,7 @@ TouchOSC.toggle_cue_mode = function(channel, control, value, status, group) {
         midi.sendShortMsg(0xB1, control, 0);
     }
 };
+
 
 // hot_cue()
 //________________________________________________________________________________________

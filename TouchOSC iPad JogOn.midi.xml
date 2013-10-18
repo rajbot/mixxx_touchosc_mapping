@@ -367,6 +367,46 @@
           <Script-Binding/>
         </options>
       </control>
+      <control>
+        <!--toggle jog mode 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.toggle_jog_mode</key>
+        <status>0XB0</status>
+        <midino>0X1B</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--toggle jog mode 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.toggle_jog_mode</key>
+        <status>0XB0</status>
+        <midino>0X22</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--load track 1-->
+        <group>[Channel1]</group>
+        <key>TouchOSC.load_track</key>
+        <status>0XB0</status>
+        <midino>0X1C</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
+      <control>
+        <!--load track 2-->
+        <group>[Channel2]</group>
+        <key>TouchOSC.load_track</key>
+        <status>0XB0</status>
+        <midino>0X23</midino>
+        <options>
+          <Script-Binding/>
+        </options>
+      </control>
     </controls>
   </controller>
 </MixxxMIDIPreset>
