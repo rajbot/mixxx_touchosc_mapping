@@ -38,8 +38,14 @@ TouchOSC.init = function(id) {
     midi.sendShortMsg(0xB1, 0x1B, 0x00); //Deck 1 browse led
     midi.sendShortMsg(0xB1, 0x24, 0x00); //Deck 2 browse led
 
-    engine.connectControl('[Channel1]', 'play', 'TouchOSC.play_status');
-    engine.connectControl('[Channel2]', 'play', 'TouchOSC.play_status');
+    ['[Channel1]', '[Channel2]'].forEach(function(channel) {
+        ['volume', 'play'].forEach(function(control) {
+            engine.connectControl(channel, control, 'TouchOSC.'+control+'_status');
+            engine.trigger(channel, control);  //play status led not updating
+        });
+    });
+
+    engine.connectControl('[Master]', 'crossfader', 'TouchOSC.crossfader_status');
 }
 
 
@@ -67,6 +73,26 @@ TouchOSC.play_status = function(value, group, control) {
     } else {
         midi.sendShortMsg(0xB1, TouchOSC.leds[group][control], 0x0);
     }
+}
+
+
+// volume_status()
+//________________________________________________________________________________________
+TouchOSC.volume_status = function(value, group, control) {
+    var num;
+    if ('[Channel1]' == group) {
+        num = 0x25;
+    } else {
+        num = 0x2A;
+    }
+    midi.sendShortMsg(0xB0, num, 127*value);
+}
+
+
+// crossfader_status()
+//________________________________________________________________________________________
+TouchOSC.crossfader_status = function(value, group, control) {
+    midi.sendShortMsg(0xB0, 0x11, 64*value+64);
 }
 
 
